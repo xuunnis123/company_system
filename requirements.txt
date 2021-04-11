@@ -1,0 +1,11 @@
+asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1605523041333/work
+certifi==2020.12.5
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1613732694779/work
+django-bootstrap3==14.2.0
+Faker==6.4.1
+Pillow==8.1.2
+python-dateutil==2.8.1
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+six==1.15.0
+sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1602142927465/work
+text-unidecode==1.3
