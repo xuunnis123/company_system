@@ -4,11 +4,10 @@ from django.urls import reverse_lazy
 from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView
 from . import models
 from django.views.generic.edit import FormView
-
+from item_app.models import Item
 #from item_app.models import Item
 #from . import forms
-#from manage_app.forms import NewUserForm
-#from rsa_company_gen import encode_rsa
+
 
 '''
 def index(request):
@@ -61,34 +60,33 @@ class CodeGenView(CreateView):
         content=datetime+mac_address
         encode={"code",encode_rsa(content,mac_address)}
         print(encode)
+'''
+class ItemListView(ListView):
+    print("ItemListView")
+    context_object_name='item'
+    model= models.Item
+    template_name='item_app/item_list.html'
 
-class CodeListView(ListView):
-    print("CodeListView")
-    context_object_name='code'
-    model= models.Code
-    template_name='manage_app/code_list.html'
-
-class CodeDetailView(DetailView):
+class ItemDetailView(DetailView):
     
-    context_object_name='code_detail'
-    model=models.Code
-    template_name='manage_app/code_detail.html'
+    context_object_name='item_detail'
+    model=models.Item
+    template_name='item_app/item_detail.html'
 
-class CodeCreateView(CreateView):
-    fields=('user','code','validate','mac_address')
-    model=models.Code
-    success_url= reverse_lazy("manage_app:list")
-class CodeUpdateView(UpdateView):
-    fields =('user','code','validate','mac_address')
-    model=models.Code
-    template_name="manage_app/code_form.html"
-    success_url= reverse_lazy("manage_app:list")
-class CodeDeleteView(DeleteView):
-    model=models.Code
-    success_url= reverse_lazy("manage_app:list")
+class ItemCreateView(CreateView):
+    fields=('item_name','quantity','unit','price','note')
+    model=models.Item
+    success_url= reverse_lazy("item_app:list")
+class ItemUpdateView(UpdateView):
+    fields=('item_name','quantity','unit','price','note')
+    model=models.Item
+    template_name="item_app/item_form.html"
+    success_url= reverse_lazy("item_app:list")
+class ItemDeleteView(DeleteView):
+    model=models.Item
+    success_url= reverse_lazy("item_app:list")
 
 class IndexView(TemplateView):
-    template_name='manage_app/index.html'
-    model=models.Code
+    template_name='item_app/index.html'
+    model=models.Item
     
-'''

@@ -1,0 +1,25 @@
+
+{% extends "item_app/base.html"%}
+
+{% block body_block %}
+    <h1>Welcome to a list of all the Items:</h1>
+    <table class="table">
+    <thead class="table-dark">
+        <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>Note</th>
+    </thead>
+        {% for uni_item in item %}
+        <tr>
+            <td><a href="{% url 'item_app:detail' uni_item.id %}">{{ uni_item.item_name }}</a></td>
+            <td>{{ uni_item.quantity }}</td>
+            <td>{{ uni_item.unit }}</td>
+            <td>{{ uni_item.price }}</td>
+            <td>{{ uni_item.note }}</td>
+        </tr>
+        {% endfor %}
+    
+    </table>
+    {% endblock %}

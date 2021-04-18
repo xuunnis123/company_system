@@ -1,0 +1,44 @@
+{% extends 'item_app/base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+    <h1>Welcome to the Item Detail Page</h1>
+    <h2>Item details:</h2>
+    <table class="table">
+        <thead class="table-dark">
+    
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>Note</th>
+        </thead>
+        <tr>
+            <td>
+            {{item_detail.item_name}}
+            </td>
+        
+            <td>
+            {{item_detail.quantity }}
+            </td>
+        
+            <td>
+                {{item_detail.unit}}
+            </td>
+            
+       
+            <td>
+                {{item_detail.price}}
+            </td>
+            <td>
+                {{item_detail.note}}
+            </td>
+        </tr>
+    </table>
+
+</div>
+<div class="container">
+    <p><a class='btn btn-warning' href="{% url 'item_app:update' pk=item_detail.pk %}">Update</a>
+    <a class='btn btn-danger' href="{% url 'item_app:delete' pk=item_detail.pk %}">Delete</a></p>
+</div>
+{% endblock %}
+<h1></h1>

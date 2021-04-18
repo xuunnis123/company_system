@@ -20,5 +20,5 @@ from django.conf.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', views.IndexView.as_view()),
-    #path('item_app/',include('item_app.urls',namespace='item_app')),
+    path('item_app/',include('item_app.urls',namespace='item_app')),
 ]
